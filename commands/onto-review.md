@@ -2,4 +2,5 @@
 
 $ARGUMENTS를 8인 에이전트 팀으로 리뷰합니다.
 
-`~/.claude/plugins/onto-review/process.md`의 **팀 리뷰 모드** 프로세스를 따라 실행하세요.
+`~/.claude/plugins/onto-review/process.md` (공통 정의)와
+`~/.claude/plugins/onto-review/processes/review.md`를 읽고 실행하세요.
