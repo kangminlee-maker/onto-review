@@ -14,8 +14,11 @@
 
 2. **도메인 문서 수집**:
    - 도메인 판별 후, `~/.claude/agent-memory/domains/{domain}/` 하위에서 해당 에이전트의 도메인 문서를 읽습니다.
-   - 도메인 학습 (글로벌): `~/.claude/agent-memory/domains/{domain}/learnings/{agent-id}.md`
-   - 도메인 학습 (프로젝트): `{project}/.claude/learnings/{agent-id}.md` — 해당 프로젝트에서 축적된 학습
+
+3. **도메인 학습 수집** (반드시 수행):
+   - 글로벌: `~/.claude/agent-memory/domains/{domain}/learnings/{agent-id}.md`
+   - **프로젝트**: `{project}/.claude/learnings/{agent-id}.md` — 해당 프로젝트에서 축적된 학습. **이 디렉토리가 존재하면 반드시 읽어야 합니다.**
+   - 파일이 없으면 무시합니다.
 
 3. **질문 대상 수집**:
    - 질문이 파일/코드를 참조하는 경우: 해당 내용을 읽습니다.

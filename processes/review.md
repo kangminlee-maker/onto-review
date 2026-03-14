@@ -27,10 +27,13 @@
 4. **에이전트 파일 수집** (8인 각각):
    - 정의: `~/.claude/plugins/onto-review/agents/{agent-id}.md`
    - 방법론 학습: `~/.claude/agent-memory/methodology/{agent-id}.md`
-   - 도메인 학습 (글로벌): `~/.claude/agent-memory/domains/{domain}/learnings/{agent-id}.md`
-   - 도메인 학습 (프로젝트): `{project}/.claude/learnings/{agent-id}.md`
    - 소통 학습 (공통): `~/.claude/agent-memory/communication/common.md`
    - 소통 학습 (개별): `~/.claude/agent-memory/communication/{agent-id}.md`
+   - 파일이 없으면 무시합니다.
+
+5. **도메인 학습 수집** (8인 각각, 반드시 수행):
+   - 글로벌: `~/.claude/agent-memory/domains/{domain}/learnings/{agent-id}.md`
+   - **프로젝트**: `{project}/.claude/learnings/{agent-id}.md` — 해당 프로젝트에서 축적된 학습. **이 디렉토리가 존재하면 반드시 읽어야 합니다.**
    - 파일이 없으면 무시합니다.
 
 ### 2. Team 생성
