@@ -60,21 +60,15 @@ Claude Code에서 아래 명령어를 순서대로 실행합니다:
 ## 팀 리뷰 흐름
 
 ```
-Round 1: 7인 독립 리뷰
+Round 1: 7인 독립 리뷰 (유일한 독립 Round)
     ↓
-Philosopher 종합 + 새로운 관점 제시
-    ↓
-Round 2: 7인 재응답 (독립)
-    ↓
-Philosopher 종합 + 목적/철학 부합 확인
-    ↓
-(미합의 시) Round 3: 쟁점 토론 (직접 소통 개방)
-    ↓
-최종 합의 정리
+Philosopher 종합 + 판정
+    ├── 합의 명확 → 최종 출력
+    └── 쟁점 존재 → 직접 토론 → 최종 출력
 ```
 
-- Round 1~2: Agent Teams로 실행하되, teammate 간 독립성 유지
-- Round 3: 미합의 항목에 대해서만 teammate 간 직접 토론 허용
+- Round 1: 완전 독립 — 다른 에이전트의 관점을 모른 채 검증
+- 쟁점 토론: 모순/간과된 전제가 있을 때만 해당 에이전트 간 직접 소통
 - Fallback: TeamCreate 실패 시 Agent tool(subagent) 방식으로 전환
 
 ## 디렉토리 구조
