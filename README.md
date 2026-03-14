@@ -4,6 +4,18 @@
 
 온톨로지 구조에서 영감을 받아 설계되었으며, 소프트웨어, 법률, 회계 등 도메인에 관계없이 적용 가능합니다.
 
+## 설치
+
+```bash
+claude plugin add kangminlee-maker/onto-review
+```
+
+또는 직접 클론:
+
+```bash
+git clone https://github.com/kangminlee-maker/onto-review.git ~/.claude/plugins/onto-review
+```
+
 ## 에이전트 구성
 
 | ID | 역할 | 검증 차원 |
