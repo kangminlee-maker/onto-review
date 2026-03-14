@@ -34,17 +34,19 @@
 | `philosopher` | 시스템 목적 기반 메타 관점 제공, 7인의 판단을 목적 관점에서 종합·재정의, 새로운 관점 제시 |
 
 ### 도메인 문서
-각 에이전트는 실행 시 해당 도메인의 문서를 읽습니다:
-```
-~/.claude/agent-memory/domains/{domain}/
-  ├── logic_rules.md        ← onto_logic
-  ├── structure_spec.md     ← onto_structure
-  ├── dependency_rules.md   ← onto_dependency
-  ├── concepts.md           ← onto_semantics
-  ├── competency_qs.md      ← onto_pragmatics
-  ├── extension_cases.md    ← onto_evolution
-  └── domain_scope.md       ← onto_coverage
-```
+각 에이전트는 실행 시 해당 도메인의 문서를 읽습니다 (파일이 없으면 범용 원칙으로 검증):
+
+| 유형 | 문서 | 에이전트 | 부재 시 영향 | 자동 갱신 |
+|---|---|---|---|---|
+| **범위 정의형** | `domain_scope.md` | onto_coverage | 역할 무력화 | promote 7단계 |
+| **축적 가능형** | `concepts.md` | onto_semantics | 성능 저하 (학습으로 보완) | promote 7단계 |
+| **축적 가능형** | `competency_qs.md` | onto_pragmatics | 성능 저하 (학습으로 보완) | promote 7단계 |
+| **규칙 정의형** | `logic_rules.md` | onto_logic | 성능 저하 (LLM 대체 가능) | 수동 관리 |
+| **규칙 정의형** | `structure_spec.md` | onto_structure | 성능 저하 (LLM 대체 가능) | 수동 관리 |
+| **규칙 정의형** | `dependency_rules.md` | onto_dependency | 성능 저하 (LLM 대체 가능) | 수동 관리 |
+| **규칙 정의형** | `extension_cases.md` | onto_evolution | 성능 저하 (LLM 대체 가능) | 수동 관리 |
+
+경로: `~/.claude/agent-memory/domains/{domain}/`
 
 ### 도메인 판별 규칙
 
@@ -152,7 +154,9 @@ team lead는 Context Gathering에서 확보한 **도메인명**, **플러그인 
 
 ### 3분류 저장
 
-**소통 학습** (`~/.claude/agent-memory/communication/{agent-id}.md`):
+**소통 학습**:
+- `~/.claude/agent-memory/communication/common.md` (공통): 모든 에이전트에 적용되는 소통 규칙. 팀 리뷰에서 발견된 사항은 여기에 저장합니다.
+- `~/.claude/agent-memory/communication/{agent-id}.md` (개별): 특정 에이전트의 소통 선호. 개별 질문(`/onto-{dimension}`)에서 발견된 사항만 여기에 저장합니다.
 - "소통 학습" 항목 중 "없음"이 아닌 것을 저장합니다.
 - 사용자의 소통 선호, 작업 방식, 피드백에 대한 발견입니다.
 
