@@ -36,17 +36,19 @@
 ### 도메인 문서
 각 에이전트는 실행 시 해당 도메인의 문서를 읽습니다 (파일이 없으면 범용 원칙으로 검증):
 
-| 유형 | 문서 | 에이전트 | 부재 시 영향 | 자동 갱신 |
+| 유형 | 문서 | 에이전트 | 부재 시 영향 | 갱신 방식 |
 |---|---|---|---|---|
-| **범위 정의형** | `domain_scope.md` | onto_coverage | 역할 무력화 | promote 7단계 |
-| **축적 가능형** | `concepts.md` | onto_semantics | 성능 저하 (학습으로 보완) | promote 7단계 |
-| **축적 가능형** | `competency_qs.md` | onto_pragmatics | 성능 저하 (학습으로 보완) | promote 7단계 |
-| **규칙 정의형** | `logic_rules.md` | onto_logic | 성능 저하 (LLM 대체 가능) | 수동 관리 |
-| **규칙 정의형** | `structure_spec.md` | onto_structure | 성능 저하 (LLM 대체 가능) | 수동 관리 |
-| **규칙 정의형** | `dependency_rules.md` | onto_dependency | 성능 저하 (LLM 대체 가능) | 수동 관리 |
-| **규칙 정의형** | `extension_cases.md` | onto_evolution | 성능 저하 (LLM 대체 가능) | 수동 관리 |
+| **범위 정의형** | `domain_scope.md` | onto_coverage | 역할 무력화 | promote 제안 → 사용자 승인 |
+| **축적 가능형** | `concepts.md` | onto_semantics | 성능 저하 (학습으로 보완) | promote 제안 → 사용자 승인 |
+| **축적 가능형** | `competency_qs.md` | onto_pragmatics | 성능 저하 (학습으로 보완) | promote 제안 → 사용자 승인 |
+| **규칙 정의형** | `logic_rules.md` | onto_logic | 성능 저하 (LLM 대체 가능) | 사용자 직접 작성/수정 |
+| **규칙 정의형** | `structure_spec.md` | onto_structure | 성능 저하 (LLM 대체 가능) | 사용자 직접 작성/수정 |
+| **규칙 정의형** | `dependency_rules.md` | onto_dependency | 성능 저하 (LLM 대체 가능) | 사용자 직접 작성/수정 |
+| **규칙 정의형** | `extension_cases.md` | onto_evolution | 성능 저하 (LLM 대체 가능) | 사용자 직접 작성/수정 |
 
 경로: `~/.claude/agent-memory/domains/{domain}/`
+
+**도메인 문서 보호 원칙**: 도메인 문서는 사용자의 **명시적 승인 없이 자동 수정되지 않습니다.** promote 7단계의 갱신 제안, onboard의 초안 생성 모두 사용자 확인을 거칩니다. 에이전트가 리뷰/질문 실행 중 도메인 문서를 직접 수정하는 것은 금지됩니다. 도메인 문서는 프로젝트별 학습과 구분되는 **도메인 수준의 합의된 기준**이며, 특정 프로젝트의 특화 내용이 아닌 도메인 전체에 적용되는 범용 기준만 포함합니다.
 
 ### 도메인 판별 규칙
 
